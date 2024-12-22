@@ -1,6 +1,6 @@
-## Scripts to add user to group and deleting them 
+# Scripts to add user to group and deleting them 
 
-Here is a Bash script to create a user named `yourName`, add them to the `FamilyName` group, and handle cases where the user or group already exists. It also displays relevant information for the user and group.
+##Here is a Bash script to create a user named `yourName`, add them to the `FamilyName` group, and handle cases where the user or group already exists. It also displays relevant information for the user and group.
  
 ### How It Works:
 1. **Group Check**: Uses `getent group` to check if the group exists.
@@ -12,7 +12,7 @@ Here is a Bash script to create a user named `yourName`, add them to the `Family
    - `getent group` shows detailed group information.
 
 
-To delete a user and a group in Linux, you can use the `userdel` and `groupdel` commands.
+##To delete a user and a group in Linux, you can use the `userdel` and `groupdel` commands.
 
 
 ### Explanation:
