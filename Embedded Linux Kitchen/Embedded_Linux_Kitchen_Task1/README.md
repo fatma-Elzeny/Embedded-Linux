@@ -1,9 +1,9 @@
+# Crosstool-NG: Build and Test Cross-Toolchains
+
+##Crosstool-NG is a versatile and highly configurable tool for building cross-compilers. This README provides an overview of how to set up, configure, and test a toolchain using Crosstool-NG, with testing performed using QEMU.
 
 
 ```markdown
-# Crosstool-NG: Build and Test Cross-Toolchains
-
-Crosstool-NG is a versatile and highly configurable tool for building cross-compilers. This README provides an overview of how to set up, configure, and test a toolchain using Crosstool-NG, with testing performed using QEMU.
 
 ## Prerequisites
 
@@ -134,7 +134,5 @@ Refer to the official documentation for more advanced configurations:
 
 ---
 
-Enjoy building custom cross-toolchains with Crosstool-NG!
-```
 
 
