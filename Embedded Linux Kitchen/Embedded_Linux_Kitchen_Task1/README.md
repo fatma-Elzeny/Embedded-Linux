@@ -11,6 +11,7 @@ Before starting, ensure the following dependencies are installed on your system:
 
 - **Build tools**: `gcc`, `g++`, `make`, `patch`, `tar`, `gzip`, `bzip2`, `xz`
 - **Development tools**: `autoconf`, `automake`, `libtool`, `bison`, `flex`
+  **Debug tools**: `gdb`, `strace`,
 - **C libraries**: `libncurses-dev`, `zlib1g-dev`, `gawk`, `wget`
 - **Other utilities**: `git`, `perl`, `texinfo`
 
@@ -36,7 +37,7 @@ sudo apt install qemu-system qemu-user
    git clone https://github.com/crosstool-ng/crosstool-ng.git
    cd crosstool-ng
    ```
-![Subdirectory Image](images/Screenshot from 2025-01-13 17-26-54.png)
+![Subdirectory Image](images/crosstool-ng-repo.png)
 
 2. Build and install Crosstool-NG:
 
