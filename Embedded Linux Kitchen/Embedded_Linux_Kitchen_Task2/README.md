@@ -45,12 +45,17 @@ This command creates a 100 MB file named `virtual_memory_card.img`. You can adju
   ![Subdirectory Image](images/9.png)
   ![Subdirectory Image](images/10.png)
   ![Subdirectory Image](images/11.png)
+  ![Subdirectory Image](images/MBR.png)
+  
 
  Attach the virtual disk to a loop device to allow cfdisk to interact with it:
 ```bash
-sudo losetup -f sd.img
+sudo losetup --partscan-f sd.img
 ```
     -f: Finds an available loop device.
+    
+  ![Subdirectory Image](images/losetup.png)
+    in my case the virtual disk attached to loop17    
 ### 3. Format the Virtual Memory Card
 Next, format the virtual memory card using the `mkfs` command. You can choose any filesystem type. Below, we use `ext4`:
 
@@ -79,14 +84,6 @@ sudo mount -o loop virtual_memory_card.img /mnt/virtual_memory_card
 - `-o loop`: Tells the system to treat the file as a block device.
 - `/mnt/virtual_memory_card`: The directory where the virtual memory card will be mounted.
 
-### 6. Access and Use the Virtual Memory Card
-Your virtual memory card is now mounted and ready for use. You can now copy, move, and delete files just like with a real memory card.
-
-For example, you can copy a file to the virtual memory card:
-
-```bash
-cp sample.txt /mnt/virtual_memory_card
-```
 
 ### 7. Unmount the Virtual Memory Card
 Once you're done using the virtual memory card, unmount it with the following command:
@@ -95,17 +92,3 @@ Once you're done using the virtual memory card, unmount it with the following co
 sudo umount /mnt/virtual_memory_card
 ```
 
-### 8. (Optional) Remove the Virtual Memory Card File
-If you no longer need the virtual memory card, you can delete the image file:
-
-```bash
-rm virtual_memory_card.img
-```
-
-## Conclusion
-
-You have successfully created a virtual memory card on Linux using simple commands. This virtual card can be used to simulate storage devices for various purposes, such as testing, development, or transferring data.
-
----
-
-Let me know if you need any modifications or additional details!
