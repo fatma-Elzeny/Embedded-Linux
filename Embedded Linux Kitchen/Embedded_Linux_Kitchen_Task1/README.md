@@ -11,7 +11,7 @@ Before starting, ensure the following dependencies are installed on your system:
 
 - **Build tools**: `gcc`, `g++`, `make`, `patch`, `tar`, `gzip`, `bzip2`, `xz`
 - **Development tools**: `autoconf`, `automake`, `libtool`, `bison`, `flex`
-  **Debug tools**: `gdb`, `strace`,
+- **Debug tools**: `gdb`, `strace`,
 - **C libraries**: `libncurses-dev`, `zlib1g-dev`, `gawk`, `wget`
 - **Other utilities**: `git`, `perl`, `texinfo`
 
@@ -70,11 +70,16 @@ sudo apt install qemu-system qemu-user
    ./ct-ng "arch"
    ./ct-ng menuconfig
    ```
-
+ ![Subdirectory Image](images/menuconfig.png)    
    In the configuration menu:
    - You can also choose the architecture by Setting the **Target architecture** (e.g., `arm`, `x86_64`, `riscv64`, etc.)
+ ![Subdirectory Image](images/arch.png)  
    - Select the desired **C library** (e.g., `glibc`, `musl`, or `uclibc`).
+ ![Subdirectory Image](images/lib.png)  
    - Configure **Binutils**, **GCC**, and **kernel** versions.
+![Subdirectory Image](images/companion.png)
+![Subdirectory Image](images/debug.png)
+![Subdirectory Image](images/options.png)   
    - Save the configuration and exit.
 
 3. Build the toolchain:
@@ -113,9 +118,10 @@ sudo apt install qemu-system qemu-user
    ```
 
 4. Run the compiled binary with QEMU:
-
+   The sysroot is a directory that acts as a pseudo-filesystem that allows dynamic linking with libraries even if the target does not have an operating system , it will not run with out it 
    ```bash
-   qemu-<target> ./test
+   qemu-<target> -L /home/fatma/x-tools/arm-Fatma-linux-gnueabihf/arm-Fatma-linux-gnueabihf/sysroot test
+
    ```
 
    Replace `<target>` with the appropriate QEMU target (e.g., `arm`, `aarch64`, `riscv64`, etc.). The output should be:
@@ -123,7 +129,7 @@ sudo apt install qemu-system qemu-user
    ```
    Hello, Crosstool-NG!
    ```
-
+![Subdirectory Image](images/output.png)
 ## Troubleshooting
 
 - If the build fails, check the logs in the `.build` directory for detailed error messages.
