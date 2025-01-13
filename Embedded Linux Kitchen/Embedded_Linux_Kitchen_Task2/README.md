@@ -57,19 +57,19 @@ sudo losetup --partscan-f sd.img
   ![Subdirectory Image](images/losetup.png)
     in my case the virtual disk attached to loop17    
 ### 3. Format the Virtual Memory Card
-Next, format the virtual memory card using the `mkfs` command. You can choose any filesystem type. Below, we use `ext4`:
+Next, format the virtual memory card using the `mkfs` command. You can choose any filesystem type. Below, we use `vfat`:
 
 ```bash
-sudo mkfs.ext4 sd.img
+sudo mkfs.vfat -F 16 -n boot /dev/loop17p1
 ```
 
-This creates an ext4 filesystem within the `virtual.img` file. You can replace `ext4` with other filesystems like `vfat` or `ntfs` based on your needs.
+This creates an vfat filesystem within the `sd.img` file. You can replace `vfat` with other filesystems like `ext4` or `ntfs` based on your needs.
 
 ### 4. Create a Mount Point
 Create a directory to mount the virtual memory card.
 
 ```bash
-mkdir /mnt/virtual_memory_card
+mkdir /mnt
 ```
 
 This will be the mount point for the virtual memory card.
@@ -78,17 +78,17 @@ This will be the mount point for the virtual memory card.
 Now, mount the virtual memory card to the directory you created.
 
 ```bash
-sudo mount -o loop virtual_memory_card.img /mnt/virtual_memory_card
-```
+sudo mount /dev/loop17p1 ./mnt
 
-- `-o loop`: Tells the system to treat the file as a block device.
-- `/mnt/virtual_memory_card`: The directory where the virtual memory card will be mounted.
+```
+- `/mnt`: The directory where the virtual memory card will be mounted.
 
 
 ### 7. Unmount the Virtual Memory Card
 Once you're done using the virtual memory card, unmount it with the following command:
 
 ```bash
-sudo umount /mnt/virtual_memory_card
+sudo umount /dev/loop17p1 
 ```
+![Subdirectory Image](images/mkfs.png)
 
