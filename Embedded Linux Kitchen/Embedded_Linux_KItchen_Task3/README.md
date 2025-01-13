@@ -152,7 +152,7 @@ sudo umount /dev/loop17p1
   ![Subdirectory Image](images/modifyzimage.png)
   ![Subdirectory Image](images/modifycontent.png)
   ![Subdirectory Image](images/QemuWithSD.png)
-  ![Subdirectory Image](images/zimage.png)
+  ![Subdirectory Image](images/zImage.png)
   
 ## Troubleshooting
 
