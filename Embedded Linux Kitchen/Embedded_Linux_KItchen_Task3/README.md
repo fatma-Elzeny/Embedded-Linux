@@ -8,7 +8,7 @@ Before proceeding, ensure you have the following tools installed on your system:
 
 - **QEMU**: Emulator for running virtualized environments.
 - **U-Boot Source Code**: Obtainable from [U-Boot's GitHub repository](https://github.com/u-boot/u-boot).
-- **Cross-Compiler**: Suitable for the target architecture (e.g., `arm-none-eabi-gcc` for ARM).
+- **Cross-Compiler**: Using our Toolchain we build using crosstool-ng
 - **dd Utility**: For creating disk images.
 - **GNU Make** and **Build Essentials**: For compiling the source code.
 
@@ -39,10 +39,11 @@ Before proceeding, ensure you have the following tools installed on your system:
    ```
    ![Subdirectory Image](images/crosscompile.png)
    ![Subdirectory Image](images/build.png)
+   ![Subdirectory Image](images/afterbuild.png)
 3. **Build U-Boot**:
    Compile the source code using the cross-compiler.
    ```bash
-   make CROSS_COMPILE=arm-none-eabi-
+   export CROSS_COMPILE=~/x-tools/arm-Fatma-linux-gnueabihf/bin/arm-Fatma-linux-gnueabihf-
    ```
 
 ---
@@ -96,6 +97,7 @@ Next, format the virtual memory card using the `mkfs` command. You can choose an
 
 ```bash
 sudo mkfs.vfat -F 16 -n boot /dev/loop17p1
+sudo mkfs.ext4 -L rootfs /dev/loop17p2
 ```
 
 This creates an vfat filesystem within the `sd.img` file. You can replace `vfat` with other filesystems like `ext4` or `ntfs` based on your needs.
@@ -104,7 +106,7 @@ This creates an vfat filesystem within the `sd.img` file. You can replace `vfat`
 Create a directory to mount the virtual memory card.
 
 ```bash
-mkdir /mnt
+mkdir boot rootfs
 ```
 
 This will be the mount point for the virtual memory card.
@@ -113,10 +115,11 @@ This will be the mount point for the virtual memory card.
 Now, mount the virtual memory card to the directory you created.
 
 ```bash
-sudo mount /dev/loop17p1 ./mnt
+sudo mount /dev/loop17p1 boot
+sudo mount /dev/loop17p2 rootfs
 
 ```
-- `/mnt`: The directory where the virtual memory card will be mounted.
+- `boot`, `rootfs`: The directory where the virtual memory card will be mounted.
 
 
 ### 7. Unmount the Virtual Memory Card
@@ -132,30 +135,25 @@ sudo umount /dev/loop17p1
 ![Subdirectory Image](images/mkfs2.png)
 
 ![Subdirectory Image](images/mount.png)
+
+![Subdirectory Image](images/umount.png)
 ## Step 3: Running U-Boot in QEMU
 
 1. **Launch QEMU**:
-   Use the appropriate QEMU command to emulate the target architecture and attach the SD card.
-   ```bash
-   qemu-system-arm -M versatilepb -m 128M -nographic -sd sdcard.img -kernel u-boot
-   ```
 
-2. **Interact with U-Boot**:
-   Once QEMU starts, you should see the U-Boot console.
-   ```
-   U-Boot 2023.01 (Jan 01 2023 - 00:00:00 +0000)
-   U-Boot >
-   ```
-
-3. **Test SD Card Functionality**:
-   Verify that U-Boot detects the SD card.
-   ```
-   U-Boot > mmc list
-   U-Boot > mmc info
-   ```
-
----
-
+  - `qemu-system-arm -M ?` check all the machines 
+  - `qemu-system-arm -M vexpress-a9 -kernel u-boot -nographic` choose the specified Machine 
+  - `qemu-system-arm -M vexpress-a9 -kernel u-boot -nographic -sd ~/sdcard/sd.img` Accociate Qemu with the emulated SD card 
+  
+ we will modify ZImage in the boot Partition and running Qemu again 
+  Here is The detailed Steps :
+  ![Subdirectory Image](images/Qemu.png)
+  ![Subdirectory Image](images/QemuwithSDbeforeModify.png)
+  ![Subdirectory Image](images/modifyzimage.png)
+  ![Subdirectory Image](images/modifycontent.png)
+  ![Subdirectory Image](images/QemuWithSD.png)
+  ![Subdirectory Image](images/zimage.png)
+  
 ## Troubleshooting
 
 - **Compilation Errors**: Ensure the correct cross-compiler is installed and in your system's PATH.
