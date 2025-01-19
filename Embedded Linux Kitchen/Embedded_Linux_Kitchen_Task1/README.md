@@ -12,7 +12,7 @@ Before starting, ensure the following dependencies are installed on your system:
 - **Build tools**: `gcc`, `g++`, `make`, `patch`, `tar`, `gzip`, `bzip2`, `xz`
 - **Development tools**: `autoconf`, `automake`, `libtool`, `bison`, `flex`
 - **Debug tools**: `gdb`, `strace`,
-- **C libraries**: `libncurses-dev`, `zlib1g-dev`, `gawk`, `wget`
+- **C libraries**: `glibc`, `Uclib`, `msul`
 - **Other utilities**: `git`, `perl`, `texinfo`
 
 Install them on Debian/Ubuntu-based systems using:
