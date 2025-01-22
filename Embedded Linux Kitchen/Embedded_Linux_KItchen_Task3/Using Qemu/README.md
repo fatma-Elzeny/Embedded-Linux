@@ -21,11 +21,9 @@ Before proceeding, ensure you have the following tools installed on your system:
    git clone https://github.com/u-boot/u-boot.git
    cd u-boot
   ```
-   use v2025.01
+
    
   
-   ![Subdirectory Image](../images/u-boot.png)
-   ![Subdirectory Image](../images/version.png)
 
 2. **Select a Target Board**:
    Configure U-Boot for the desired target architecture (e.g., ARM).
@@ -58,7 +56,7 @@ The first step is to create an empty file that will act as the virtual memory ca
 ```bash
 sudo dd if=/dev/zero of=sd.img bs=1M count=1024
 ```
- ![Subdirectory Image](images/dd.png)
+ ![Subdirectory Image](../images/dd.png)
 This command creates a 100 MB file named `virtual_memory_card.img`. You can adjust the size by changing the `count` value (in MB).
 
 - `if=/dev/zero`: Specifies the input source (a file filled with zeroes).
