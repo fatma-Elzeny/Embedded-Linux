@@ -51,9 +51,9 @@ This guide explains how to set up and use U-Boot as a bootloader on a physical S
    ```
 
    The compiled U-Boot binary will be in the `u-boot.bin` file.
-   ![Subdirectory Image](images-rpi/uboot.png)
-   ![Subdirectory Image](images-rpi/uboot2.png)
-   ![Subdirectory Image](images-rpi/uboot3.png)
+   ![Subdirectory Image](../images-rpi/uboot.png)
+   ![Subdirectory Image](../images-rpi/uboot2.png)
+   ![Subdirectory Image](../images-rpi/uboot3.png)
 ---
 
 ### 2. Prepare the SD Card
@@ -63,7 +63,7 @@ This guide explains how to set up and use U-Boot as a bootloader on a physical S
    lsblk
    ```
 using `sudo dmesg`
- ![Subdirectory Image](images-rpi/dmesg.png)
+ ![Subdirectory Image](../images-rpi/dmesg.png)
 2. Partition the SD card:
    ```bash
    sudo cfdisk /dev/sdX
@@ -96,17 +96,17 @@ using `sudo dmesg`
    sudo umount rootfs
    ```
    
-    ![Subdirectory Image](images-rpi/conf1.png)
-    ![Subdirectory Image](images-rpi/conf2.png)
-    ![Subdirectory Image](images-rpi/conf3.png)
-    ![Subdirectory Image](images-rpi/conf4.png)
+    ![Subdirectory Image](../images-rpi/conf1.png)
+    ![Subdirectory Image](../images-rpi/conf2.png)
+    ![Subdirectory Image](../images-rpi/conf3.png)
+    ![Subdirectory Image](../images-rpi/conf4.png)
 ---
 or You can cloning the emulated SDcard 
-![Subdirectory Image](images-rpi/using_emulated.png)
+![Subdirectory Image](../images-rpi/using_emulated.png)
 ---
 ###4.Adding The fireware files to the Sd card 
 
-![Subdirectory Image](images-rpi/fireware.png)
+![Subdirectory Image](.//images-rpi/fireware.png)
 ### 5. Set Up Minicom for Serial Debugging
 
 1. Connect the USB-to-UART adapter to the Raspberry Pi's GPIO pins:
@@ -126,7 +126,7 @@ or You can cloning the emulated SDcard
    - Set the serial device to `/dev/ttyUSB0` (or the detected device).
    - Set the baud rate to `115200`.
    - Disable hardware and software flow control.
-![Subdirectory Image](images-rpi/minicom.png)
+![Subdirectory Image](../images-rpi/minicom.png)
    Save the configuration and start **minicom**:
    ```bash
    minicom

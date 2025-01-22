@@ -22,24 +22,24 @@ Before proceeding, ensure you have the following tools installed on your system:
    cd u-boot
   ```
    use v2025.01
-   ![Subdirectory Image](images/u-boot.png)
-   ![Subdirectory Image](images/version.png)
+   ![Subdirectory Image](../images/u-boot.png)
+   ![Subdirectory Image](../images/version.png)
 
 2. **Select a Target Board**:
    Configure U-Boot for the desired target architecture (e.g., ARM).
    ```bash
    make <board_name>_defconfig
    ```
-   ![Subdirectory Image](images/vexpress.png)
-   ![Subdirectory Image](images/config.png)
-   ![Subdirectory Image](images/env.png)
+   ![Subdirectory Image](../images/vexpress.png)
+   ![Subdirectory Image](../images/config.png)
+   ![Subdirectory Image](../images/env.png)
    Example:
    ```bash
    make qemu_arm_defconfig
    ```
-   ![Subdirectory Image](images/crosscompile.png)
-   ![Subdirectory Image](images/build.png)
-   ![Subdirectory Image](images/afterbuild.png)
+   ![Subdirectory Image](../images/crosscompile.png)
+   ![Subdirectory Image](../images/build.png)
+   ![Subdirectory Image](../images/afterbuild.png)
 3. **Build U-Boot**:
    Compile the source code using the cross-compiler.
    ```bash
@@ -69,19 +69,19 @@ This command creates a 100 MB file named `virtual_memory_card.img`. You can adju
  using `cfdisk` command to create the header MBR with type `FAT16` making it bootable to carry `U-boot` with size 200Mand the second partition is the Linux Partition
  Here is the detailed Steps :
   
-  ![Subdirectory Image](images/dos.png)
-  ![Subdirectory Image](images/1.png)
-  ![Subdirectory Image](images/2.png)
-  ![Subdirectory Image](images/3.png)
-  ![Subdirectory Image](images/4.png)
-  ![Subdirectory Image](images/5.png)
-  ![Subdirectory Image](images/6.png)
-  ![Subdirectory Image](images/7.png)
-  ![Subdirectory Image](images/8.png)
-  ![Subdirectory Image](images/9.png)
-  ![Subdirectory Image](images/10.png)
-  ![Subdirectory Image](images/11.png)
-  ![Subdirectory Image](images/MBR.png)
+  ![Subdirectory Image](../images/dos.png)
+  ![Subdirectory Image](../images/1.png)
+  ![Subdirectory Image](../images/2.png)
+  ![Subdirectory Image](../images/3.png)
+  ![Subdirectory Image](../images/4.png)
+  ![Subdirectory Image](../images/5.png)
+  ![Subdirectory Image](../images/6.png)
+  ![Subdirectory Image](../images/7.png)
+  ![Subdirectory Image](../images/8.png)
+  ![Subdirectory Image](../images/9.png)
+  ![Subdirectory Image](../images/10.png)
+  ![Subdirectory Image](../images/11.png)
+  ![Subdirectory Image](../images/MBR.png)
   
 
  Attach the virtual disk to a loop device to allow cfdisk to interact with it:
@@ -90,7 +90,7 @@ sudo losetup --partscan-f sd.img
 ```
     -f: Finds an available loop device.
     
-  ![Subdirectory Image](images/losetup.png)
+  ![Subdirectory Image](../images/losetup.png)
     in my case the virtual disk attached to loop17    
 ### 3. Format the Virtual Memory Card
 Next, format the virtual memory card using the `mkfs` command. You can choose any filesystem type. Below, we use `vfat`:
@@ -128,15 +128,15 @@ Once you're done using the virtual memory card, unmount it with the following co
 ```bash
 sudo umount /dev/loop17p1 
 ```
-![Subdirectory Image](images/mkfs.png)
+![Subdirectory Image](../images/mkfs.png)
 
-![Subdirectory Image](images/lsblk.png)
+![Subdirectory Image](../images/lsblk.png)
 
-![Subdirectory Image](images/mkfs2.png)
+![Subdirectory Image](../images/mkfs2.png)
 
-![Subdirectory Image](images/mount.png)
-![Subdirectory Image](images/boot-rootfs.png)
-![Subdirectory Image](images/umount.png)
+![Subdirectory Image](../images/mount.png)
+![Subdirectory Image](../images/boot-rootfs.png)
+![Subdirectory Image](../images/umount.png)
 ## Step 3: Running U-Boot in QEMU
 
 1. **Launch QEMU**:
@@ -147,12 +147,12 @@ sudo umount /dev/loop17p1
   
  we will modify ZImage in the boot Partition and running Qemu again 
   Here is The detailed Steps :
-  ![Subdirectory Image](images/Qemu.png)
-  ![Subdirectory Image](images/QemuwithSDbeforeModify.png)
-  ![Subdirectory Image](images/modifyzimage.png)
-  ![Subdirectory Image](images/modifycontent.png)
-  ![Subdirectory Image](images/QemuWithSD.png)
-  ![Subdirectory Image](images/zImage.png)
+  ![Subdirectory Image](../images/Qemu.png)
+  ![Subdirectory Image](../images/QemuwithSDbeforeModify.png)
+  ![Subdirectory Image](../images/modifyzimage.png)
+  ![Subdirectory Image](../images/modifycontent.png)
+  ![Subdirectory Image](../images/QemuWithSD.png)
+  ![Subdirectory Image](../images/zImage.png)
   
 ## Troubleshooting
 
