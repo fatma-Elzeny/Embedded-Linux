@@ -135,7 +135,7 @@ sudo umount /dev/loop17p1
 ![Subdirectory Image](images/mkfs2.png)
 
 ![Subdirectory Image](images/mount.png)
-
+![Subdirectory Image](images/boot-rootfs.png)
 ![Subdirectory Image](images/umount.png)
 ## Step 3: Running U-Boot in QEMU
 
