@@ -22,9 +22,6 @@ Before proceeding, ensure you have the following tools installed on your system:
    cd u-boot
   ```
 
-   
-  
-
 2. **Select a Target Board**:
    Configure U-Boot for the desired target architecture (e.g., ARM).
    ```bash

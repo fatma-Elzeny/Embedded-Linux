@@ -63,7 +63,8 @@ This guide explains how to set up and use U-Boot as a bootloader on a physical S
    lsblk
    ```
 using `sudo dmesg`
- ![Subdirectory Image](../images-rpi/dmesg.png)
+   to Know the name of the device
+   ![Subdirectory Image](../images-rpi/sdcard.png)
 2. Partition the SD card:
    ```bash
    sudo cfdisk /dev/sdX
@@ -86,6 +87,12 @@ using `sudo dmesg`
    ```bash
    sudo mount /dev/sdX1 boot
    ```
+**Adding The fireware files to the Sd card** 
+
+![Subdirectory Image](.//images-rpi/fireware.png)   
+   copy all the fireware files into the boot partition + the u-boot.bin
+**Edit zImage**
+![Subdirectory Image](../images-rpi/zImage.png)   
    Mount the Linux partition:
    ```bash
    sudo mount /dev/sdX2 rootfs
@@ -98,16 +105,15 @@ using `sudo dmesg`
    
     ![Subdirectory Image](../images-rpi/conf1.png)
     ![Subdirectory Image](../images-rpi/conf2.png)
-    ![Subdirectory Image](../images-rpi/conf3.png)
-    ![Subdirectory Image](../images-rpi/conf4.png)
+    ![Subdirectory Image](../images-rpi/mount.png)
+    ![Subdirectory Image](../images-rpi/step2.png)
+    ![Subdirectory Image](../images-rpi/step3.png)
 ---
 or You can cloning the emulated SDcard 
 ![Subdirectory Image](../images-rpi/using_emulated.png)
 ---
-###4.Adding The fireware files to the Sd card 
 
-![Subdirectory Image](.//images-rpi/fireware.png)
-### 5. Set Up Minicom for Serial Debugging
+### 5. Set Up  for Serial Debugging
 
 1. Connect the USB-to-UART adapter to the Raspberry Pi's GPIO pins:
    - Pin 6 (GND) → GND of the adapter.
@@ -118,31 +124,28 @@ or You can cloning the emulated SDcard
    ```bash
    dmesg | grep tty
    ```
-
-3. Configure **minicom**:
+3. Using GTKTerm to deal with U-boot 
+   installing: 
    ```bash
-   sudo minicom -s
-   ```
-   - Set the serial device to `/dev/ttyUSB0` (or the detected device).
-   - Set the baud rate to `115200`.
-   - Disable hardware and software flow control.
-![Subdirectory Image](../images-rpi/minicom.png)
-   Save the configuration and start **minicom**:
-   ```bash
-   minicom
-   ```
-
----
-
+  sudo apt install gtkterm -y
+  sudo apt remove brltty
+  sudo usermod -a -G dialout $USER
+    ```
+4. Configure GTKTerm 
+    ```bash
+    gtkterm -p /dev/ttyUSB0 -s 115200
+    ```
+  
 ### 5. Boot U-Boot on the RPi3
 
 1. Insert the prepared SD card into the RPi3.
 
-2. Power on the RPi3. You should see the U-Boot prompt in **minicom**:
+2. Power on the RPi3. You should see the U-Boot prompt in ****:
    ```
    U-Boot>
    ```
-
+   ![Subdirectory Image](../images-rpi/output1.png)
+   ![Subdirectory Image](../images-rpi/output2.png)
 ---
 
 
