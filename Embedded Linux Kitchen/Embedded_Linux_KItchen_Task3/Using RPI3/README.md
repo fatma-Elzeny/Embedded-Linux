@@ -24,7 +24,7 @@ This guide explains how to set up and use U-Boot as a bootloader on a physical S
 
 ### 3. System
 - A Linux development machine where the custom toolchain is installed.
-- Serial console access via **minicom**.
+- Serial console access via **GTKTerm**.
 
 ---
 
@@ -89,8 +89,9 @@ using `sudo dmesg`
    ```
 **Adding The fireware files to the Sd card** 
 
-![Subdirectory Image](.//images-rpi/fireware.png)   
+   ![Subdirectory Image](.//images-rpi/fireware.png)   
    copy all the fireware files into the boot partition + the u-boot.bin
+   
 **Edit zImage**
 ![Subdirectory Image](../images-rpi/zImage.png)   
    Mount the Linux partition:
