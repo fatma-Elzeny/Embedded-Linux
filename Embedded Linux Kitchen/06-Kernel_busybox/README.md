@@ -80,7 +80,7 @@ make -j$(nproc)
 
 ```
 This command installs BusyBox utilities into the _install/ directory.
-![Subdirectory Image](../images/busybox.png)
+![Subdirectory Image](images/busybox.png)
 ---
 
 ## 3. Prepare the Virtual SD card 
@@ -102,9 +102,9 @@ cp -r ~/x-tools/arm-fatma-linux-musleabihf/arm-fatma-linux-musleabihf/sysroot/us
 cp ~/linux/arch/arm/boot/zImage /Sd_card/boot
 ```
 This command copies the kernel image to the boot partition.
-![Subdirectory Image](../images/copy.png)
-![Subdirectory Image](../images/boot_tree.png)
-![Subdirectory Image](../images/rootfs_tree.png)
+![Subdirectory Image](images/copy.png)
+![Subdirectory Image](images/boot_tree.png)
+![Subdirectory Image](images/rootfs_tree.png)
 ---
 
 ## 4. Run QEMU  
@@ -136,13 +136,13 @@ This command loads the device tree blob into RAM.
 bootz $kernel_addr_r - $fdt_addr_r
 ```
 This command boots the kernel with the provided device tree.
-![Subdirectory Image](../images/uboot.png)
+![Subdirectory Image](images/uboot.png)
 `init` is missing or incorrect, you will see a **kernel panic**:  
 
 ```
 Kernel panic - not syncing: No working init found.
 ```
-![Subdirectory Image](../images/panic.png)
+![Subdirectory Image](images/panic.png)
 ---
 
 
