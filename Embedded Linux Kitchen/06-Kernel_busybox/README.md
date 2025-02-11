@@ -48,7 +48,7 @@ and the device tree
 ```
 linux/arch/arm/boot/dts/vexpress-v2p-ca9.dtb (Device Tree Blob)
 ```
-![Subdirectory Image](../images/zImage.png)
+![Subdirectory Image](images/zImage.png)
 ---
 
 ## 2. Clone and Compile BusyBox  
