@@ -4,12 +4,8 @@
 .global _start
 
 _start:
-    // Disable interrupts
-    msr DAIFSet, #0xF
+    
 
-    // Set the stack pointer (SP)
-    ldr x0, =stack_top
-    mov sp, x0
 
     // Branch to main function
     bl main

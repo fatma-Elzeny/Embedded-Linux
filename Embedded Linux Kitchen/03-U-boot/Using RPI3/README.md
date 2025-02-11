@@ -88,8 +88,7 @@ using `sudo dmesg`
    sudo mount /dev/sdX1 boot
    ```
 **Adding The fireware files to the Sd card** 
-
-   ![Subdirectory Image](.//images-rpi/fireware.png)   
+![Subdirectory Image](.//images-rpi/fireware.png)   
    copy all the fireware files into the boot partition + the u-boot.bin
    
 **Edit zImage**
